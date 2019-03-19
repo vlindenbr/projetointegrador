@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "Nec Plus";
+	src: url("../../assets/fonts/necplusi-webfont.woff") format("woff");
+}
+
+.cl1 {
+	background-color: #F1B802 !important;
+}
+
+.cl2 {
+	background-color: #A66618 !important;
+}
+
+.cl3 {
+	background-color: #723601 !important;
+}
+
+.cl4 {
+	background-color: #411503 !important;
+}
+
+.cl5 {
+	background-color: #0E0101 !important;
+}
+
+.text-cl1 {
+	color: #F1B802 !important;
+}
+
+.navbar-brand {
+	color: #0E0101 !important;
+	font-family: 'Nec Plus', Arial, sans-serif;
+}
+
+.nav-link {
+	color: #A66618 !important;
+}
+
+.nav-link:hover {
+	color: #0E0101 !important;
+}
+
+.active>a {
+	color: #0E0101 !important;
+}
