@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Parametros do Banco de Dados</comment>
+<entry key="driverJDBC">org.postgresql.Driver</entry>
+<entry key="senha">!tca123</entry>
+<entry key="usuario">vlinden</entry>
+<entry key="urlCnx">jdbc:mysql://127.0.0.1:3306/projetointegrador</entry>
+</properties>
