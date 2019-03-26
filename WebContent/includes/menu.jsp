@@ -14,7 +14,7 @@
             <a class="nav-link" href="login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="meus-anuncios">Meus Anúncios</a>
+            <a class="nav-link" href="meus-anuncios.jsp">Meus Anúncios</a>
           </li>
         </ul>
       </div>
