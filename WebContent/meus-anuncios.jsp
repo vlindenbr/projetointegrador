@@ -1,3 +1,10 @@
+<%@page import="java.util.ArrayList"%>
+
+<%@page import="controller.VeiculoController"%>
+<%@page import="model.Veiculo"%>
+<%
+	ArrayList<Veiculo> veiculos = VeiculoController.getMeusAnuncios(2);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <jsp:include page="includes/head.jsp" />
@@ -11,11 +18,17 @@
 		  <a href="editar-anuncio.jsp?id=novo" class="btn cl1 btn-adicionar" role="button" aria-pressed="true">Adicionar</a>
 		</div>
         <div class="row">
-
-          <% for(int i = 0; i < 12; i+=1) { %>
-		    <jsp:include page="anuncio/item.jsp" /> 
-		   <% } %>
-
+		<% if (veiculos.size() > 0) { %>
+			<% for (Veiculo veiculo : veiculos) {%>
+				<jsp:include page="anuncio/item.jsp">
+					<jsp:param name="link" value="<%=veiculo.getLinkEdicao()%>" />
+					<jsp:param name="nome" value="<%=veiculo.getNome()%>" />
+					<jsp:param name="valor" value="<%=veiculo.getValor()%>" />
+					<jsp:param name="observacoes" value="<%=veiculo.getObservacoesAbrev()%>" />
+					<jsp:param name="id" value="<%=veiculo.getId()%>" />
+				</jsp:include>
+			<%}%>
+		<%} %>
         </div>
       </div>
     </div>
