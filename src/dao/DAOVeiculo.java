@@ -13,7 +13,7 @@ import model.VeiculoImagem;
 public class DAOVeiculo {
 
 	public static Integer cadastrar(Conexao conexao, Veiculo veiculo) throws SQLException {
-		String sql = "insert into veiculo ( usuario_id, nome, placa, tipo, quilometragem, ano, valor, observacoes, situacao ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into veiculo ( usuario_id, nome, placa, tipo, quilometragem, ano, valor, observacoes, situacao ) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement ps = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 		ps.setInt(1, veiculo.getUsuarioId());
@@ -25,8 +25,6 @@ public class DAOVeiculo {
 		ps.setDouble(7, veiculo.getValor());
 		ps.setString(8, veiculo.getObservacoes());
 		ps.setInt(9, veiculo.getSituacao());
-//		ps.setInt(10, veiculo.getCombustivel());
-		
 
 		ps.executeUpdate();
 

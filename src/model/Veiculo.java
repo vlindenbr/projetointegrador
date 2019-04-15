@@ -12,7 +12,7 @@ public class Veiculo {
 	private Double valor;
 	private String observacoes;
 	private Integer situacao;
-	private Integer combustivel;
+	// private Integer combustivel;
 
 	public Veiculo() {
 		super();
@@ -84,9 +84,9 @@ public class Veiculo {
 		return tipo;
 	}
 
-	public Integer getCombustivel() {
-		return combustivel;
-	}
+	// public Integer getCombustivel() {
+	// return combustivel;
+	// }
 
 	public void setTipo(Integer tipo) {
 		this.tipo = tipo;

@@ -80,7 +80,7 @@ public class Anuncio extends HttpServlet {
 					Integer.parseInt(quilometragem), Integer.parseInt(ano),
 					Double.parseDouble(valor.replace(".", "").replace(",", ".")), observacoes, situacao);
 
-			if (sId == null || sId.isEmpty() || sId.equalsIgnoreCase("null")) {
+			if (sId == null || sId.isEmpty() || sId.equalsIgnoreCase("null") || sId.equalsIgnoreCase("novo")) {
 				try {
 					id = VeiculoController.cadastrar(veiculo);
 				} catch (ClassNotFoundException | SQLException e) {

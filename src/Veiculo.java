@@ -32,11 +32,8 @@ public class Veiculo extends HttpServlet {
 				String imagem = VeiculoController.getImagemByVeiculoId(Integer.parseInt(sId));
 
 				if (imagem == null) {
-					imagem = "C:\\Workspace\\Carangos\\WebContent\\assets\\img\\" + sId + File.separator
-							+ "700x400.png";
+					imagem = "C:\\Workspace\\Carangos\\WebContent\\assets\\img\\700x400.png";
 				}
-
-				// File file = new File(imagem);
 
 				Path path = Paths.get(imagem);
 				byte[] imageData = Files.readAllBytes(path);
