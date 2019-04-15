@@ -8,7 +8,7 @@
 	Veiculo veiculo= null;
 
 	if(request.getMethod().equals("GET")){
-		if (id != null) {
+		if (id != null && !id.equals("novo")) {
 			veiculo = VeiculoController.getVeiculoById(Integer.parseInt(id));
 			if(veiculo.getUsuarioId() != usuarioId){
 				response.sendRedirect("index.jsp");

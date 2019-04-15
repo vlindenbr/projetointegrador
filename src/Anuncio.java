@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Collection;
+
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;

@@ -13,7 +13,7 @@ public class Conexao {
 	private String driverJDBC = "com.mysql.jdbc.Driver";
 	private String dbUrl = "jdbc:mysql://localhost/carangos";
 	private String nomeUsuario = "root";
-	private String senhaUsuario = "";
+	private String senhaUsuario = "!tca123";
 
 	public void conecta() throws ClassNotFoundException, SQLException {
 

@@ -12,11 +12,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("cadastro.jsp") ? "active" : "");%>">
-            <a class="nav-link" href="cadastrar">Cadastrar-se
+            <a class="nav-link" href="cadastrarUsuario.jsp">Cadastrar-se
             </a>
           </li>
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("login.jsp") ? "active" : "");%>">
-            <a class="nav-link" href="login">Login</a>
+            <a class="nav-link" href="login.jsp">Login</a>
           </li>
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("meus-anuncios.jsp") || pageName.equalsIgnoreCase("editar-anuncio.jsp") ? "active" : "");%>">
             <a class="nav-link" href="meus-anuncios.jsp">Meus Anúncios</a>

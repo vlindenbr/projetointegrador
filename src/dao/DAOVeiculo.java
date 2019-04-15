@@ -25,7 +25,8 @@ public class DAOVeiculo {
 		ps.setDouble(7, veiculo.getValor());
 		ps.setString(8, veiculo.getObservacoes());
 		ps.setInt(9, veiculo.getSituacao());
-		ps.setInt(10, veiculo.getCombustivel());
+//		ps.setInt(10, veiculo.getCombustivel());
+		
 
 		ps.executeUpdate();
 
