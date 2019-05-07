@@ -31,10 +31,10 @@
 						<ul>
 							<li class="col-6">
 								<input type="hidden" name="id" value="<%=id %>">
-								<input type="text" class="form-control" placeholder="Nome*" name="nome" required="required" value="<%out.print(veiculo != null ? veiculo.getNome() : "");%>">
+								<input type="text" class="form-control" placeholder="Placa*" name="placa" required="required" value="<%out.print(veiculo != null ? veiculo.getPlaca() : "");%>" onchange="consultarPlaca(this)">
 							</li>
 							<li class="col-6">
-								<input type="text" class="form-control" placeholder="Placa*" name="placa" required="required" value="<%out.print(veiculo != null ? veiculo.getPlaca() : "");%>">
+								<input type="text" class="form-control" placeholder="Nome*" name="nome" required="required" value="<%out.print(veiculo != null ? veiculo.getNome() : "");%>">
 							</li>
 							<li class="col-6">
 								<select required="required" name="tipo" class="form-control">
@@ -73,5 +73,27 @@
 		</div>
 	</div>
 	<jsp:include page="includes/footer.jsp" />
+	<script>
+	function consultarPlaca(obj){
+		$('input[name="nome"]').val("...");
+	  	$('input[name="ano"]').val("");
+		$.ajax({
+			  url: "http://erp.size.inf.br/services/consultar_placa/"+$(obj).val()
+			}).done(function(data) {
+				var ret = jQuery.parseJSON(data);
+				console.log(ret);
+			  	$('input[name="placa"]').val($(obj).val().toUpperCase());
+			  	$('input[name="nome"]').val(ret.modelo.replace("I/",""));
+			  	$('input[name="ano"]').val(ret.ano);
+			  	if(ret.situacao == "Roubo/Furto"){
+			  		alert("Veículo roubado!");
+			  	}
+			}).fail(function(){
+				$('input[name="nome"]').val("");
+			  	$('input[name="ano"]').val("");
+				alert("Veículo não encontrado!");
+			});
+	}
+	</script>
 </body>
 </html>
