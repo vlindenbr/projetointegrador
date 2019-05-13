@@ -32,7 +32,7 @@ public class Imagem extends HttpServlet {
 				String imagem = VeiculoController.getImagemById(Integer.parseInt(sId));
 
 				if (imagem == null) {
-					imagem = request.getServletContext().getRealPath("img") + File.separator + "700x400.png";
+					imagem = "C:\\Workspace\\Carangos\\WebContent\\assets\\img\\700x400.png";
 				}
 
 				// File file = new File(imagem);
