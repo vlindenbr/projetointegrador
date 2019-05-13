@@ -24,19 +24,19 @@
 			<form action="" >
 				<div class="form-group" style="padding-bottom: 24px;">
 					<label for="exampleInputEmail1">E-mail</label>
-					<input type="text" class="form-control" name="email" placeholder="E-mail">
+					<input type="text" class="form-control" name="email" placeholder="E-mail*">
 					<br>
 					<label for="exampleInputEmail1">Nome completo</label>
-					<input type="text" class="form-control" name="nomeCompleto" placeholder="Nome completo">
+					<input type="text" class="form-control" name="nomeCompleto" placeholder="Nome completo*">
 					<br>
 					<label for="exampleInputEmail1">Telefone</label>
-					<input type="text" class="form-control" name="telefone" placeholder="Telefone">
+					<input type="text" class="form-control" name="telefone" placeholder="Telefone*">
 					<br>
 					<label for="exampleInputEmail1">Cidade</label>
-					<input type="text" class="form-control" name="cidade" placeholder="Cidade">
+					<input type="text" class="form-control" name="cidade" placeholder="Cidade*">
 					<br>
 					<label for="exampleInputEmail1">Senha</label>
-					<input type="password" class="form-control" name="senha" placeholder="Senha">
+					<input type="password" class="form-control" name="senha" placeholder="Senha*">
 					 <br><span class="input-group-btn">
 						<button class="btn cl1" name="submit" type="submit">Cadastrar</button>
 					</span>
@@ -54,8 +54,18 @@
 		    		String nome = request.getParameter("nomeCompleto");
 		    		//Usuario userFinal = DAOUsuario.cadastrar(conexao, usuario);
 		    		
+		    		if(email=="" || senha=="" || telefone=="" || cidade=="" || nome==""){
+		    			 %>
+			    		    <script>
+			    		    	window.alert("Não são permitidos campos vazios");
+			    		    	window.location.replace("http://localhost:8080/Carangos/cadastrarUsuario.jsp");
+			    		    </script>
+			    		    <%
+		    		}else{	
+		    		
 		    		Usuario usuario = new Usuario(nome,email,senha,cidade,telefone);
 		    		DAOUsuario.cadastrar(conexao, usuario);
+		    		}
 		    	}
 		    	
 		    %> 

@@ -37,8 +37,7 @@ public class DAOUsuario {
 	
 	public static Usuario consultar(Conexao conexao, String email, String senha) throws SQLException {
 		String sql = "select * from usuario where email=? and senha=?";
-		
-		
+	
 		
 		try {
 			PreparedStatement ps = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -47,29 +46,26 @@ public class DAOUsuario {
 			ps.setString(2, senha);
 			
 			ResultSet status = ps.executeQuery();
+			
 			Usuario user = new Usuario("","","","","");
+			
 			if(status.next()) {
 				user.setCidade(status.getString("cidade"));
 				user.setTelefone(status.getString("telefone"));
 				user.setEmail(status.getString("email"));
 				user.setSenha(status.getString("senha"));
 				user.setNome(status.getString("nome"));
-				
+				user.setId(status.getInt("id"));
+				System.out.println("ID --> " + status.getInt("id"));
 				return user;
 				}
 	
 			} catch (SQLException e) {
 				System.out.println("Houve erro na execucao do comando insert");
 				System.out.println(e.getMessage());
-				System.out.println("Cуdigo de erro: " + e.getSQLState());
+				System.out.println("Codigo de erro: " + e.getSQLState());
 			}
 		
-		
-		
 		return null;
-		}
-		
-
-	
-	
+		}	
 }

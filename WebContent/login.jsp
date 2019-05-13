@@ -5,6 +5,7 @@
 <%@page import="model.Veiculo"%>
 <%@page import="lib.Conexao"%>
 <%@page import="dao.DAOUsuario"%>
+
 <%
 	String pesquisa = request.getParameter("pesquisa");
 	ArrayList<Veiculo> veiculos = VeiculoController.getAnuncios(pesquisa);
@@ -29,8 +30,7 @@
 					<label for="exampleInputEmail1">Senha</label>
 					<input type="password" class="form-control" name="senha" placeholder="Senha">
 					 <br><span class="input-group-btn">
-						<button class="btn cl1">Submit</button>
-						<button class="btn cl1" name="consultar" type="submit">Consultar</button>
+						<button class="btn cl1" name="entrar" type="submit">Entrar</button>
 					</span>
 				</div>
 				<%
@@ -39,24 +39,35 @@
 				Conexao conexao = new Conexao();
 				conexao.conecta();
 				
-		    	if(request.getParameter("consultar") != null){
+		    	if(request.getParameter("entrar") != null){
 		    		String email = request.getParameter("email");
 		    		String senha = request.getParameter("senha");
-		    		
-		    		Usuario u1 = DAOUsuario.consultar(conexao, email,senha);
-		    		if(u1 != null){
-		    			  %>
+		    		System.out.println("Email -->"+email);
+		    		System.out.println("Senha --> "+senha);
+		    		//verifica campos vazios
+		    		if(email=="" || senha==""){
+		    			 %>
 			    		    <script>
-			    		    	window.alert("Usuario e senha cadastrados");
+			    		    	window.alert("Usuario ou Senha nao preenchidos");
+			    		    	window.location.replace("http://localhost:8080/Carangos/login.jsp");
 			    		    </script>
 			    		    <%
 		    		}
-		    		else{
+		    		
+		    		Usuario u1 = DAOUsuario.consultar(conexao, email,senha);
+		    		if(u1 != null){
+		    			request.getSession().setAttribute("user", u1.getNome()); // Put user in session.
+		    			System.out.println(u1.getNome());
+		    			System.out.println(u1.getId());
+		    			request.getSession().setAttribute("user_id", u1.getId());
+		    		    response.sendRedirect("http://localhost:8080/Carangos/meus-anuncios.jsp"); // Go to some start page.
 		    			
+		    		}
+		    		else{
+		    			request.setAttribute("error", "Unknown login, try again");
 		    			  %>
 			    		    <script>
-			    		    	window.alert("Usuario e senha nao conferem");
-			    		    	window.location = "cadastrarUsuario.jsp";
+			    		    	window.alert("Erro de Usuario ou Senha");
 			    		    </script>
 			    		    <%
 		    		}

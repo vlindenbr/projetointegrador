@@ -3,8 +3,7 @@
 <%@page import="helper.Formater"%>
 <%
 	String id = request.getParameter("id");
-
-	Integer usuarioId = 2;
+	Integer usuarioId  = (Integer)request.getSession().getAttribute("user_id");
 	Veiculo veiculo= null;
 
 	if(request.getMethod().equals("GET")){
