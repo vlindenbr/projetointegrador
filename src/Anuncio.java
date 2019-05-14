@@ -61,7 +61,7 @@ public class Anuncio extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Integer usuarioId = 2;
+		Integer usuarioId = Integer.parseInt(request.getParameter("usuario_id"));
 		String sId = request.getParameter("id");
 		String nome = request.getParameter("nome");
 		String placa = request.getParameter("placa");
@@ -72,6 +72,9 @@ public class Anuncio extends HttpServlet {
 		String observacoes = request.getParameter("observacoes");
 		Integer situacao = 1;
 
+		System.out.println("x");
+		System.out.println(usuarioId);
+		
 		Integer id = null;
 
 		if (nome != null && placa != null && tipo != null && quilometragem != null && ano != null && observacoes != null

@@ -11,6 +11,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+        <%
+        if (session.getAttribute("user") == null || session.getAttribute("user_id")==null) {%>
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("cadastro.jsp") ? "active" : "");%>">
             <a class="nav-link" href="cadastrarUsuario.jsp">Cadastrar-se
             </a>
@@ -18,9 +20,14 @@
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("login.jsp") ? "active" : "");%>">
             <a class="nav-link" href="login.jsp">Login</a>
           </li>
+        <%}else{ %>
           <li class="nav-item <% out.print(pageName.equalsIgnoreCase("meus-anuncios.jsp") || pageName.equalsIgnoreCase("editar-anuncio.jsp") ? "active" : "");%>">
             <a class="nav-link" href="meus-anuncios.jsp">Meus Anúncios</a>
           </li>
+          <li class="nav-item <% out.print(pageName.equalsIgnoreCase("meus-anuncios.jsp") || pageName.equalsIgnoreCase("editar-anuncio.jsp") ? "active" : "");%>">
+            <a class="nav-link" href="logout.jsp">Logout</a>
+          </li>
+        <%} %>
         </ul>
       </div>
     </div>

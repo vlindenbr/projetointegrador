@@ -30,6 +30,7 @@
 						<ul>
 							<li class="col-6">
 								<input type="hidden" name="id" value="<%=id %>">
+								<input type="hidden" name="usuario_id" value="<%=usuarioId %>">
 								<input type="text" class="form-control" placeholder="Placa*" name="placa" required="required" value="<%out.print(veiculo != null ? veiculo.getPlaca() : "");%>" onchange="consultarPlaca(this)">
 							</li>
 							<li class="col-6">
